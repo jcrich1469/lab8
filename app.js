@@ -9,6 +9,7 @@ var path = require('path');
 var handlebars = require('express3-handlebars');
 
 var index = require('./routes/index');
+//THE ROUTE WE ADDED
 var rsvp = require('./routes/rsvp');
 
 // Example route
@@ -36,9 +37,15 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
+//THE ROUTE WE ADDED....
 // Add routes here
 app.get('/', index.view);
+//ADMIN VIEW INSIDE RSVP
 app.get('/rsvp', rsvp.adminView);
+//RSVP POST IN addRSVP
+
+app.post('/addRSVP', rsvp.addRSVP);
+
 
 // Example route
 // app.get('/users', user.list);
